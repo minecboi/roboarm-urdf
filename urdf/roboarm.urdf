@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="roboarm">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="1.1102E-16 0 -0.014128"
+        rpy="0 0 0" />
+      <mass
+        value="0.51522" />
+      <inertia
+        ixx="0.00039612"
+        ixy="8.7851E-19"
+        ixz="1.5024E-20"
+        iyy="0.00039612"
+        iyz="-1.0534E-19"
+        izz="0.00072446" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="lower arm">
+    <inertial>
+      <origin
+        xyz="-0.0652217168638302 -0.0641415924849803 -0.0201872044520144"
+        rpy="0 0 0" />
+      <mass
+        value="0.191784927718425" />
+      <inertia
+        ixx="0.000344706682225812"
+        ixy="-0.000308579251797696"
+        ixz="2.41792847167326E-06"
+        iyy="0.000390130181943763"
+        iyz="2.33384300444644E-06"
+        izz="0.000678112819504211" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/lower arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/lower arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lower -base joint"
+    type="revolute">
+    <origin
+      xyz="-0.099856 -0.020709 0.113"
+      rpy="1.5708 0 -2.7397" />
+    <parent
+      link="base_link" />
+    <child
+      link="lower arm" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.5"
+      upper="0.5"
+      effort="100"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="upper arm">
+    <inertial>
+      <origin
+        xyz="-0.049721 -0.057724 -0.019909"
+        rpy="0 0 0" />
+      <mass
+        value="0.081967" />
+      <inertia
+        ixx="9.6313E-05"
+        ixy="-7.8202E-05"
+        ixz="-1.6366E-06"
+        iyy="7.9922E-05"
+        iyz="-1.7821E-06"
+        izz="0.00017028" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/upper arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/upper arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lower-upper arm joint"
+    type="continuous">
+    <origin
+      xyz="0.096565 0.071939 -0.01"
+      rpy="3.1416 0 1.4844" />
+    <parent
+      link="lower arm" />
+    <child
+      link="upper arm" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="shoulder drive">
+    <inertial>
+      <origin
+        xyz="0.00030844 -4.8853E-05 -0.035064"
+        rpy="0 0 0" />
+      <mass
+        value="0.038412" />
+      <inertia
+        ixx="1.7213E-05"
+        ixy="-5.8074E-10"
+        ixz="1.7154E-07"
+        iyy="1.7219E-05"
+        iyz="-1.8645E-08"
+        izz="4.5367E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/shoulder drive.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/shoulder drive.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="upper_arm- shoulder joint"
+    type="continuous">
+    <origin
+      xyz="-0.011723 0.043446 0.005"
+      rpy="1.8343 -1.5708 0" />
+    <parent
+      link="upper arm" />
+    <child
+      link="shoulder drive" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="rotatory yoke">
+    <inertial>
+      <origin
+        xyz="-0.028941 2.2739E-09 -5.3659E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.015723" />
+      <inertia
+        ixx="4.9761E-06"
+        ixy="3.6537E-13"
+        ixz="8.4631E-14"
+        iyy="8.6887E-06"
+        iyz="-8.0605E-13"
+        izz="6.6824E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/rotatory yoke.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/rotatory yoke.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder -rotatory joint"
+    type="continuous">
+    <origin
+      xyz="0 0 0.068"
+      rpy="2.7942 -1.5708 0" />
+    <parent
+      link="shoulder drive" />
+    <child
+      link="rotatory yoke" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="wrist module">
+    <inertial>
+      <origin
+        xyz="2.5149E-10 -5.6038E-10 -0.019707"
+        rpy="0 0 0" />
+      <mass
+        value="0.034187" />
+      <inertia
+        ixx="9.0316E-06"
+        ixy="9.6756E-13"
+        ixz="8.4423E-14"
+        iyy="8.9897E-06"
+        iyz="-3.6362E-13"
+        izz="3.7152E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/wrist module.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roboarm/meshes/wrist module.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rotatory-wrist joint"
+    type="continuous">
+    <origin
+      xyz="0.017846 0.017508 -0.0015"
+      rpy="-1.4172 1.5708 -0.6435" />
+    <parent
+      link="rotatory yoke" />
+    <child
+      link="wrist module" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+</robot>
